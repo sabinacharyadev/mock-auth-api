@@ -1,9 +1,11 @@
 import express from "express";
+import { hashPassword } from "../utility/bcryptHelper.js";
+import { compareSync } from "bcryptjs";
 
 const userRouter = express.Router();
 
 userRouter.post("/", (req, res) => {
-  console.log(req.body);
+  const { name, email, password } = req.body;
 });
 
 export default userRouter;
