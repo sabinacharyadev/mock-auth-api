@@ -5,7 +5,7 @@ export const createUser = (userObject) => {
 };
 
 export const findUserByEmail = (email) => {
-  return userModel.find(email);
+  return userModel.findOne({ email });
 };
 
 export const updateUser = (userId) => {
