@@ -1,5 +1,5 @@
 import userModel from "../schema/userSchema.js";
 
-export default createUser = (userObject) => {
+export const createUser = (userObject) => {
   return userModel(userObject).save();
 };
