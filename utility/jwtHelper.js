@@ -18,3 +18,13 @@ export const generateJWT = (email) => {
     refreshToken: generateRefreshToken(email),
   };
 };
+
+export const verifyToken = (token) => {
+  try {
+    return jwt.verify(token, process.env.JWT_ACCESS_SECRET);
+  } catch (error) {
+    return {
+      message: error.message,
+    };
+  }
+};

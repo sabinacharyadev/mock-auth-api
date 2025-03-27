@@ -7,3 +7,7 @@ export const createSession = (sessionObject) => {
 export const deleteSession = (sessionObject) => {
   return sessionModel.findOneAndDelete(sessionObject);
 };
+
+export const findSession = (sessionObject) => {
+  return sessionModel.findOne(sessionObject);
+};
