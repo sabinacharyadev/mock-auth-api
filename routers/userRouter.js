@@ -69,7 +69,7 @@ userRouter.post("/login", async (req, res) => {
     if (!loginSession._id)
       return errorResponse(res, "Could not create session. Please try again");
 
-    successResponse(res, loginSession.token, "Logged in successfully");
+    successResponse(res, jwt, "Logged in successfully");
   } catch (error) {
     console.log(error);
     errorResponse(res, "Something went wrong");
