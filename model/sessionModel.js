@@ -11,3 +11,7 @@ export const deleteSession = (sessionObject) => {
 export const findSession = (sessionObject) => {
   return sessionModel.findOne(sessionObject);
 };
+
+export const updateSession = (sessionObject) => {
+  return sessionModel.findOneAndUpdate(sessionObject);
+};

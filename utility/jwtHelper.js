@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 
 const generateAccessToken = (email) => {
   return jwt.sign({ email }, process.env.JWT_ACCESS_SECRET, {
-    expiresIn: "1m",
+    expiresIn: "15m",
   });
 };
 
@@ -19,9 +19,19 @@ export const generateJWT = (email) => {
   };
 };
 
-export const verifyToken = (token) => {
+export const verifyAccessToken = (token) => {
   try {
     return jwt.verify(token, process.env.JWT_ACCESS_SECRET);
+  } catch (error) {
+    return {
+      message: error.message,
+    };
+  }
+};
+
+export const verifyRefreshToken = (token) => {
+  try {
+    return jwt.verify(token, process.env.JWT_REFRESH_SECRET);
   } catch (error) {
     return {
       message: error.message,
